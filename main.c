@@ -34,7 +34,7 @@ int main(int argc, char const *argv[])
   int gridC = 8;
   int gridR = 8;
   float inc = 0.7;
-  int angle;
+  float angle;
   float a;
   SDL_Point **grid;
   grid = drawGridIso(win, rend, rand, gridC, gridR);
@@ -52,7 +52,7 @@ int main(int argc, char const *argv[])
         break;
       }
       if (e.key.keysym.sym == SDLK_RIGHT) {
-        angle += 1;
+        angle = 0.1;
         a = angle * M_PI / 180;
         SDL_SetRenderDrawColor(rend, 0, 0, 0, SDL_ALPHA_OPAQUE);
         SDL_RenderClear(rend);
@@ -61,7 +61,7 @@ int main(int argc, char const *argv[])
       }
       else if (e.key.keysym.sym == SDLK_LEFT)
       {
-        angle -= 1;
+        angle = -0.1;
         a = angle * M_PI / 180;
         SDL_SetRenderDrawColor(rend, 0, 0, 0, SDL_ALPHA_OPAQUE);
         SDL_RenderClear(rend);
@@ -69,7 +69,6 @@ int main(int argc, char const *argv[])
         drawGrid(rend, grid, gridC, gridR);
       }
     }
-    SDL_Delay(1000/60);
   }
 
   SDL_DestroyRenderer(rend);

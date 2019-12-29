@@ -21,7 +21,7 @@ SDL_Point **drawGridIso(SDL_Window *win, SDL_Renderer *rend, int *arr, int gridC
 
 void makeGrid(SDL_Point **grid, int gridC, int gridR, int boxsizeV, int boxsizeH)
 {
-  int i, j, distH = 400, distV = -50;
+  int i, j, distH = 400, distV = -80;
   for (i = 0; i < gridR; i++) {
     for (j = 0; j < gridC; j++) {
       grid[i][j].x = distH;
@@ -84,14 +84,8 @@ void rotateGrid(SDL_Point **grid, int gridC, int gridR, float a, int centerX, in
  int x, y;
  for (i = 0; i < gridR; i++) {
    for (j = 0; j < gridC; j++) {
-     x =
-     (grid[i][j].x - centerX) * cos(a) -
-     (grid[i][j].y - centerY) * sin(a) +
-     centerX;
-     y =
-     (grid[i][j].x - centerX) * sin(a) +
-     (grid[i][j].y - centerY) * cos(a) +
-     centerY;
+     x = (grid[i][j].x - centerX) * cos(a) - (grid[i][j].y - centerY) * sin(a) + centerX;
+     y = (grid[i][j].x - centerX) * sin(a) + (grid[i][j].y - centerY) * cos(a) + centerY;
      grid[i][j].x = x;
      grid[i][j].y = y;
    }
